@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebDevelopment page</title>
+     
+    <style> 
+      body{
+        /* display: flex; */
+        background-color: rgb(229, 243, 167);
+        justify-content: center;
+        text-align: center;
+      }
+      .head{
+        transition: margin-right 4s;
+        color: rgb(19, 33, 224);
+        font-size: larger;
+        font-style: italic;
+        font-weight: bolder;
+      }
+      .container{
+       
+        padding: 2rem;
+        border-radius: 1rem;
+        
+      }
+      .container2{
+     
+        padding: 2rem;
+        border-radius: 1rem;
+      }
+      #btn{
+        height: 2rem;
+    background-color: rgb(231, 43, 43);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+   
+      }
+     #btn2{
+      height: 2rem;
+    background-color: rgb(232, 43, 43);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+     }
+     #result{
+      color: rgb(73, 37, 172);
+      font-size:larger;
+      font-weight: bold;
+     }
+     #result2{
+      color: rgb(44, 11, 230);
+      font-size:larger;
+      font-weight: bold;
+     }
+     .input-group-text{
+      font-size: x-large;
+     }
+    </style>
+  </head>
+  <body>
+    <nav><h1 c1ass="head">This is a Simple Milage and fuel quantity calculator WebSite!</h1>
+    </nav>
+    
+    <h1>Milage calculator</h1>
+    <div class="container">
+      <div class="input-group">
+        <span class="input-group-text">Enter Distance :</span>
+        <input type="text" aria-label="Distance Data" class="form-control1" />
+      </div>
+      <br />
+      <div class="input-group">
+        <span class="input-group-text">Enter Fuel Qty :</span>
+        <input type="text" aria-label="Fuel Data" class="form-control2" />
+      </div>
+      <br />
+      <button id="btn">Click Here !</button>
+      <br />
+      <div class="box">
+        <h5 id="result"></h5>
+      </div>
+    </div>
+
+    <h1>Fuel calculator</h1>
+    <div class="container2">
+      <div class="input-group">
+        <span class="input-group-text">Enter Distance :</span>
+        <input type="text" aria-label="Distance data" class="form-control3" />
+      </div>
+
+      <br>
+
+      <div class="input-group">
+        <span class="input-group-text">Enter Milage :</span>
+        <input type="text" aria-label="Milage data" class="form-control4" />
+      </div>
+      <br>
+      <button id="btn2">Click Here !</button>
+      <br />
+      <div class="box2">
+        <h5 id="result2"></h5>
+      </div>
+    </div>
+
+    <script>
+      const distanceField = document.getElementsByClassName("form-control1")[0];
+      const qtyField = document.getElementsByClassName("form-control2")[0];
+      const button = document.getElementById("btn");
+      const result = document.getElementById('result');
+
+
+      const distanceField2 = document.getElementsByClassName("form-control3")[0];
+      const MilageField = document.getElementsByClassName("form-control4")[0];
+      const button2=document.getElementById("btn2");
+      const result2 = document.getElementById('result2');
+
+
+      function milCalculator() {
+        const distance = parseFloat(distanceField.value);
+        const qty = parseFloat(qtyField.value);
+
+        if (!isNaN(distance) && !isNaN(qty) && qty !== 0) {
+          const resultVal = distance / qty;
+          result.textContent = `The Mileage of your car/bike is: ${resultVal.toFixed(2)} km/l`;
+        } else {
+          result.textContent = 'Please enter valid numbers for distance and fuel quantity.';
+        }
+      }
+       function Fuelcalculator() {
+        const distance2 = parseFloat(distanceField2.value);
+        const Milage = parseFloat(MilageField.value);
+        if (!isNaN(distance2) && !isNaN(Milage) && Milage !== 0) {
+          const resultVal2 = distance2 / Milage;
+          result2.textContent = `Fuel required in your car/bike  is: ${resultVal2.toFixed(2)} Litters`;
+        } else {
+          result2.textContent = 'Please enter valid numbers for distance and milage values.';
+        }
+       }
+
+      button.addEventListener("click", () => {
+        milCalculator();
+        
+      });
+      button2.addEventListener("click",()=>{
+        Fuelcalculator();
+      });
+    </script>
+  </body>
+</html>
